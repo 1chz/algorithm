@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class Queue<T> {
+public class Queue<E> {
 
-    private List<T> queue;
+    private List<E> queue;
 
     public Queue() {
         this.queue = new ArrayList<>();
     }
 
-    public void enqueue(final T ele) {
+    public void enqueue(final E ele) {
         queue.add(ele);
     }
 
-    public T dequeue() {
+    public E dequeue() {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
