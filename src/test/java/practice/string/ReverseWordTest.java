@@ -37,6 +37,13 @@ class ReverseWordTest {
         Assertions.assertThat(actual).containsExactly(expected);
     }
 
+    @MethodSource("solution")
+    @ParameterizedTest
+    void solution2(final String[] words, final String[] expected) {
+        final String[] actual = solve.solution2(words);
+        Assertions.assertThat(actual).containsExactly(expected);
+    }
+
     private static Stream<Arguments> solution() {
         return Stream.of(
             Arguments.of(new String[]{"good", "Time", "Big"}, new String[]{"doog", "emiT", "giB"}),
