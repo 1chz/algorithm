@@ -19,9 +19,9 @@ import org.junit.jupiter.params.provider.MethodSource;
  * </pre>
  */
 @DisplayName("프로그래머스 42576 - 완주하지 못한 선수")
-class Hash42576Test {
+class Programmers42576Test {
 
-    private Hash42576 solve = new Hash42576();
+    private Programmers42576 solve = new Programmers42576();
 
     @MethodSource
     @ParameterizedTest

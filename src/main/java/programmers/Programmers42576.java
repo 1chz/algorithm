@@ -3,7 +3,7 @@ package programmers;
 import java.util.Arrays;
 
 // 테스트 코드 참고
-public class Hash42576 {
+public class Programmers42576 {
 
     public String solution(String[] participant, String[] completion) {
         Arrays.sort(participant);
