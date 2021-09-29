@@ -1,4 +1,4 @@
-package collection;
+package data.structure;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 
