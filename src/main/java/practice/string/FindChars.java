@@ -1,4 +1,4 @@
-package practice;
+package practice.string;
 
 public class FindChars {
 
