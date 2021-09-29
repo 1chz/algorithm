@@ -30,15 +30,17 @@ class ReverseWordTest {
 
     private ReverseWord solve = new ReverseWord();
 
-    @MethodSource
     @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("StringBuilder를 이용한 풀이")
     void solution(final String[] words, final String[] expected) {
         final String[] actual = solve.solution(words);
         Assertions.assertThat(actual).containsExactly(expected);
     }
 
-    @MethodSource("solution")
     @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("배열의 인덱스를 이용한 풀이")
     void solution2(final String[] words, final String[] expected) {
         final String[] actual = solve.solution2(words);
         Assertions.assertThat(actual).containsExactly(expected);

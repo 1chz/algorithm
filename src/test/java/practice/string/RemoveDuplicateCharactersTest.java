@@ -26,15 +26,17 @@ class RemoveDuplicateCharactersTest {
 
     private RemoveDuplicateCharacters solve = new RemoveDuplicateCharacters();
 
-    @MethodSource
     @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("LinedHashSet을 이용한 풀이")
     void solution(final String charSequence, final String expected) {
         final String actual = solve.solution(charSequence);
         Assertions.assertThat(actual).isEqualTo(expected);
     }
 
-    @MethodSource("solution")
     @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("배열의 인덱스를 이용한 풀이")
     void solution2(final String charSequence, final String expected) {
         final String actual = solve.solution2(charSequence);
         Assertions.assertThat(actual).isEqualTo(expected);
