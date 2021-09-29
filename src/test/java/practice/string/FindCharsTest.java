@@ -2,6 +2,7 @@ package practice.string;
 
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -28,6 +29,7 @@ import practice.string.FindChars;
  * 첫 줄에 해당 문자의 개수를 출력한다.
  * </pre>
  */
+@DisplayName("문자열 - 문자 찾기")
 class FindCharsTest {
 
     private FindChars solve = new FindChars();

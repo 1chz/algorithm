@@ -23,7 +23,6 @@ import org.junit.jupiter.params.provider.MethodSource;
  * 풀이의 시간복잡도는 배열을 한번 순회하면 끝나므로 O(n)입니다.
  * </pre>
  */
-
 @DisplayName("프로그래머스 42577 - 전화번호 목록")
 class Programmers42577Test {
 

@@ -2,6 +2,7 @@ package practice.string;
 
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,6 +24,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * <h1>출력</h1>
  * </pre>
  */
+@DisplayName("문자열 - 대소문자 변환")
 class ConvertLowerUpperTest {
 
     private ConvertLowerUpper solve = new ConvertLowerUpper();

@@ -2,6 +2,7 @@ package practice.string;
 
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -26,6 +27,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * 단어를 답으로 합니다.
  * </pre>
  */
+@DisplayName("문자열 - 문장 속 단어")
 class WordInSentenceTest {
 
     private WordInSentence solve = new WordInSentence();

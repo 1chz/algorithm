@@ -2,8 +2,10 @@ package data.structure;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("스택")
 class StackTest {
     private Stack<Integer> stack;
 
