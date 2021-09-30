@@ -30,7 +30,7 @@ class PalindromeTest {
 
     @ParameterizedTest
     @MethodSource("solution")
-    @DisplayName("문자열을 뒤집은 후 상호 비교. 시간복잡도 O(n)")
+    @DisplayName("문자열을 뒤집은 후 상호 비교. StringBuilder.reverse()의 시간복잡도는 O(n)")
     void solution(final String sentence, final boolean expected) {
         final boolean actual = solve.solution(sentence);
         Assertions.assertThat(actual).isEqualTo(expected);
