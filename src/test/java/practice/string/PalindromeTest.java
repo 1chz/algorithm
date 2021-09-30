@@ -10,11 +10,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 /**
  * <h1>7. 회문 문자열</h1>
  * <h1>설명</h1>
- *
+ * <p>
  * 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 회문 문자열이라고 합니다.
- *
+ * <p>
  * 문자열이 입력되면 해당 문자열이 회문 문자열이면 "YES", 회문 문자열이 아니면 “NO"를 출력하는 프로그램을 작성하세요.
- *
+ * <p>
  * 단 회문을 검사할 때 대소문자를 구분하지 않습니다.
  *
  * <h1>입력</h1>
@@ -28,10 +28,19 @@ class PalindromeTest {
 
     private Palindrome solve = new Palindrome();
 
-    @MethodSource
     @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("문자열을 뒤집은 후 상호 비교. 시간복잡도 O(n)")
     void solution(final String sentence, final boolean expected) {
         final boolean actual = solve.solution(sentence);
+        Assertions.assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("solution")
+    @DisplayName("배열 인덱스를 사용한 대칭비교. 시간복잡도는 0.5n이므로 O(n)")
+    void solution2(final String sentence, final boolean expected) {
+        final boolean actual = solve.solution2(sentence);
         Assertions.assertThat(actual).isEqualTo(expected);
     }
 
