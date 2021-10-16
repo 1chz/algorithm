@@ -2,6 +2,7 @@ package practice.array;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,6 +21,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * <h1>출력</h1>
  * 선생님이 볼 수 있는 최대학생수를 출력한다.
  */
+@DisplayName("배열 - 보이는 학생")
 public class NumberOfVisibleStudentTest {
 
     private NumberOfVisibleStudent solve = new NumberOfVisibleStudent();
