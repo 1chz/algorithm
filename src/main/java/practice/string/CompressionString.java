@@ -17,7 +17,6 @@ public class CompressionString {
                 }
             }
         }
-        System.out.println(answer);
         return answer;
     }
 
