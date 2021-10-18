@@ -1,6 +1,7 @@
 package practice.array;
 
 import static java.lang.Math.toIntExact;
+import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 public class SieveOfEratosthenes {
@@ -12,10 +13,10 @@ public class SieveOfEratosthenes {
     소수는 1과 자기자신으로밖에 나눌수 없는 수를 의미한다.
     2,3,5,7...
     이 때 1은 기초수라 하여 소수에 포함하지 않는다.
-    
+
     이를 간단하게 표현하면 2부터 n-1까지의 어떤 수로도 나누어지지 않는 수라고 볼 수 있으며
     에라토스테네스의 체는 소수로 나뉘어지지 않는 수 역시 소수라는 발상으로 시작한다.
-    
+
     즉, 이미 구해놓은 소수를 이용하여 특정 범위까지의 모든 소수를 판별한다.
     이때, 약수는 대칭성을 가지므로 n의 제곱근만큼의 연산만 하면 된다.
     예를 들어 n=20일 때 20의 제곱근은 4.4이므로 반올림하여 4까지의 수만 나누어보면 된다.
@@ -44,18 +45,31 @@ public class SieveOfEratosthenes {
     }
 
     private boolean isPrimeNumber(final int number) {
-        if (number == 1) { // 1은 기초수이므로 소수가 아니다
-            return false;
-        }
-
-        int divisor = 2;
-        while (divisor * divisor <= number) { // 약수는 대칭성을 보이므로 n의 제곱근만큼 순회하면 모든 약수를 판별할 수 있다
-            if (number % divisor == 0) { // 1과 자기자신을 제외한 어떤수로도 나누어 떨어지기만 하면 소수가 아님
-                return false;
-            }
-            divisor++; // 나누어 떨어지지 않았다면 약수를 1증가시키고 다음 루프를 시작한다
-        }
-        return true; // number 의 제곱근만큼 순회하며 모두 나누었음에도 나누어 떨어지지 않았다면 소수이다
+        return IntStream.range(2, getRangeEnd(number))
+            .noneMatch(divisorOf(number));
     }
+
+    private int getRangeEnd(final int number) {
+        return Math.toIntExact(Math.round(Math.sqrt(number))) + 1;
+    }
+
+    private IntPredicate divisorOf(final int number) {
+        return i -> number % i == 0;
+    }
+
+//    private boolean isPrimeNumber(final int number) {
+//        if (number == 1) { // 1은 기초수이므로 소수가 아니다
+//            return false;
+//        }
+//
+//        int divider = 2;
+//        while (divider * divider <= number) { // 약수는 대칭성을 보이므로 n의 제곱근만큼 순회하면 모든 약수를 판별할 수 있다
+//            if (number % divider == 0) { // 1과 자기자신을 제외한 어떤수로도 나누어 떨어지기만 하면 소수가 아님
+//                return false;
+//            }
+//            divider++; // 나누어 떨어지지 않았다면 나눔수를 1증가시키고 다음 루프를 시작한다
+//        }
+//        return true; // number 의 제곱근만큼 순회하며 모두 나누었음에도 나누어 떨어지지 않았다면 소수이다
+//    }
 
 }
