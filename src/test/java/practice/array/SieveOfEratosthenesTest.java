@@ -35,7 +35,8 @@ public class SieveOfEratosthenesTest {
 
     private static Stream<Arguments> solution() {
         return Stream.of(
-            Arguments.of(20, 8)
+            Arguments.of(20, 8),
+            Arguments.of(50, 15)
         );
     }
 

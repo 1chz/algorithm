@@ -1,8 +1,8 @@
 package practice.array;
 
 import static java.lang.Math.toIntExact;
+import static java.util.stream.IntStream.range;
 import java.util.function.IntPredicate;
-import java.util.stream.IntStream;
 
 public class SieveOfEratosthenes {
 
@@ -39,13 +39,13 @@ public class SieveOfEratosthenes {
     소수는 총 8개다.
      */
     public long solution(final long value) {
-        return IntStream.range(1, toIntExact(value + 1)) // value가 20일 경우 1~20까지의 수를 생성해야하는데, 레인지 함수는 인덱스 시작이 0부터이므로 +1 연산을 해준다.
+        return range(2, toIntExact(value + 1)) // value가 20일 경우 1~20까지의 수를 생성해야하는데, 레인지 함수는 인덱스 시작이 0부터이므로 +1 연산을 해준다.
             .filter(this::isPrimeNumber)
             .count();
     }
 
     private boolean isPrimeNumber(final int number) {
-        return IntStream.range(2, getRangeEnd(number))
+        return range(2, getRangeEnd(number))
             .noneMatch(divisorOf(number));
     }
 
@@ -56,20 +56,5 @@ public class SieveOfEratosthenes {
     private IntPredicate divisorOf(final int number) {
         return i -> number % i == 0;
     }
-
-//    private boolean isPrimeNumber(final int number) {
-//        if (number == 1) { // 1은 기초수이므로 소수가 아니다
-//            return false;
-//        }
-//
-//        int divider = 2;
-//        while (divider * divider <= number) { // 약수는 대칭성을 보이므로 n의 제곱근만큼 순회하면 모든 약수를 판별할 수 있다
-//            if (number % divider == 0) { // 1과 자기자신을 제외한 어떤수로도 나누어 떨어지기만 하면 소수가 아님
-//                return false;
-//            }
-//            divider++; // 나누어 떨어지지 않았다면 나눔수를 1증가시키고 다음 루프를 시작한다
-//        }
-//        return true; // number 의 제곱근만큼 순회하며 모두 나누었음에도 나누어 떨어지지 않았다면 소수이다
-//    }
 
 }
