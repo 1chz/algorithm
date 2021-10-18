@@ -28,7 +28,7 @@ public class SieveOfEratosthenesTest {
 
     @MethodSource
     @ParameterizedTest
-    void solution(final long value, final long expected) throws Exception {
+    void solution(final int value, final long expected) throws Exception {
         final long actual = solve.solution(value);
         assertThat(actual).isEqualTo(expected);
     }

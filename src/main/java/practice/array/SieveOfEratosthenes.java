@@ -1,5 +1,7 @@
 package practice.array;
 
+import static java.lang.Math.round;
+import static java.lang.Math.sqrt;
 import static java.lang.Math.toIntExact;
 import static java.util.stream.IntStream.range;
 import java.util.function.IntPredicate;
@@ -38,23 +40,23 @@ public class SieveOfEratosthenes {
 
     소수는 총 8개다.
      */
-    public long solution(final long value) {
-        return range(2, toIntExact(value + 1)) // value가 20일 경우 1~20까지의 수를 생성해야하는데, 레인지 함수는 인덱스 시작이 0부터이므로 +1 연산을 해준다.
+    public long solution(final int value) {
+        return range(2, value + 1) // value가 20일 경우 2~20까지의 수를 생성해야하는데, 레인지 함수는 인덱스 시작이 0부터이므로 +1 연산을 해준다.
             .filter(this::isPrimeNumber)
             .count();
     }
 
     private boolean isPrimeNumber(final int number) {
-        return range(2, getRangeEnd(number))
+        return range(2, getRangeEnd(number) + 1) // 레인지 함수는 인덱스 시작이 0부터이므로 +1 연산을 해준다.
             .noneMatch(divisorOf(number));
     }
 
     private int getRangeEnd(final int number) {
-        return Math.toIntExact(Math.round(Math.sqrt(number))) + 1;
+        return toIntExact(round(sqrt(number)));
     }
 
     private IntPredicate divisorOf(final int number) {
-        return i -> number % i == 0;
+        return divider -> number % divider == 0;
     }
 
 }
