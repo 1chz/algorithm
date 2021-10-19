@@ -16,7 +16,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * 예를들어 1번은 5개를 맞췄고, 2~3번은 0개를 맞췄다면 해쉬맵에는
  * 5 = {1}
  * 0 = {2,3}
- * 같이 데이터를 저장한다.
+ * 같이 데이터를 저장하고 역정렬 후 반환한다.
  *
  * 시간복잡도는 O(N)
  *
