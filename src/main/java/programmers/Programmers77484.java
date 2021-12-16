@@ -1,49 +1,31 @@
 package programmers;
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Programmers77484 {
 
+    public static final int[] RANK = {6, 6, 5, 4, 3, 2, 1};
+
     public int[] solution(int[] lottos, int[] winNums) {
-        long numberOfZero = Arrays.stream(lottos)
-            .filter(num -> num == 0)
+        Set<Integer> lottoSet = stream(lottos)
+            .boxed()
+            .collect(Collectors.toUnmodifiableSet());
+
+        int countOfZero = (int) stream(lottos)
+            .filter(this::isZero)
             .count();
 
-        long matchCount = Arrays.stream(winNums)
-            .filter(winNum -> Arrays.stream(lottos)
-                .anyMatch(lotto -> winNum == lotto))
+        int matchCount = (int) stream(winNums)
+            .filter(lottoSet::contains)
             .count();
 
-        return new int[]{
-            MatchPrize.getRank((int) (matchCount + numberOfZero)),
-            MatchPrize.getRank((int) matchCount)
-        };
+        return new int[]{RANK[countOfZero + matchCount], RANK[matchCount]};
     }
 
-    private enum MatchPrize {
-        FIRST(1, 6),
-        SECOND(2, 5),
-        THIRD(3, 4),
-        FOURTH(4, 3),
-        FIFTH(5, 2),
-        SIXTH(6, 1);
-
-        private final int rank;
-        private final int matchCount;
-
-        MatchPrize(int rank, int matchCount) {
-            this.rank = rank;
-            this.matchCount = matchCount;
-        }
-
-        private static int getRank(int matchCount) {
-            return Arrays.stream(values())
-                .filter(matchPrize -> matchPrize.matchCount == matchCount)
-                .findFirst()
-                .orElse(SIXTH)
-                .rank;
-        }
-
+    private boolean isZero(int num) {
+        return num == 0;
     }
 
 }
