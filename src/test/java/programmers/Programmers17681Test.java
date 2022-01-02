@@ -11,8 +11,8 @@ import org.junit.jupiter.params.provider.MethodSource;
  * 문제 링크: https://programmers.co.kr/learn/courses/30/lessons/17681
  */
 @DisplayName("프로그래머스 17681 - [1차] 비밀지도")
-class Programmers176811Test {
-    Programmers176811 solve = new Programmers176811();
+class Programmers17681Test {
+    Programmers17681 solve = new Programmers17681();
 
     static Stream<Arguments> solution() {
         return Stream.of(
