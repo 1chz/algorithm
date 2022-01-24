@@ -1,6 +1,5 @@
 package programmers;
 
-import static java.util.stream.Collectors.groupingBy;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -9,16 +8,18 @@ import java.util.function.IntFunction;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.groupingBy;
+
 public class Programmers42579 {
     public int[] solution(String[] genres, int[] plays) {
         return IntStream.rangeClosed(0, genres.length - 1)
-            .mapToObj(toMusic(genres, plays))
-            .collect(groupingBy(Music::getGenre))
-            .entrySet().stream()
-            .sorted(inOrderOfMostPlayedGenre())
-            .flatMap(twoInOrderOfMostPlayed())
-            .mapToInt(Music::getId)
-            .toArray();
+                .mapToObj(toMusic(genres, plays))
+                .collect(groupingBy(Music::getGenre))
+                .entrySet().stream()
+                .sorted(inOrderOfMostPlayedGenre())
+                .flatMap(twoInOrderOfMostPlayed())
+                .mapToInt(Music::getId)
+                .toArray();
     }
 
     private IntFunction<Music> toMusic(String[] genres, int[] plays) {
@@ -31,21 +32,17 @@ public class Programmers42579 {
 
     private Function<Entry<String, List<Music>>, Stream<? extends Music>> twoInOrderOfMostPlayed() {
         return entry -> entry.getValue()
-            .stream()
-            .sorted()
-            .limit(2);
+                .stream()
+                .sorted()
+                .limit(2);
     }
 
     private int sum(List<Music> value) {
-        int answer = 0;
-        for (Music music : value) {
-            answer += music.played;
-        }
-        return answer;
+        return value.stream()
+                .mapToInt(Music::getPlayed)
+                .sum();
     }
-
     private static class Music implements Comparable<Music> {
-
         private final int id;
         private final String genre;
         private final int played;
@@ -66,6 +63,10 @@ public class Programmers42579 {
 
         private String getGenre() {
             return genre;
+        }
+
+        private int getPlayed() {
+            return played;
         }
 
         @Override
