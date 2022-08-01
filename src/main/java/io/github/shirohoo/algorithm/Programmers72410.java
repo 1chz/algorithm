@@ -1,20 +1,21 @@
 package io.github.shirohoo.algorithm;
 
-import static java.util.stream.Collectors.joining;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
 
 public class Programmers72410 {
     public String solution(String new_id) {
         return Stream.of(new_id)
-            .map(step1())
-            .map(step2())
-            .map(step3())
-            .map(step4())
-            .map(step5())
-            .map(step6())
-            .map(step7())
-            .collect(joining());
+                .map(step1())
+                .map(step2())
+                .map(step3())
+                .map(step4())
+                .map(step5())
+                .map(step6())
+                .map(step7())
+                .collect(joining());
     }
 
     private Function<String, String> step1() {

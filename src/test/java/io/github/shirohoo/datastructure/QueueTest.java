@@ -1,15 +1,14 @@
 package io.github.shirohoo.datastructure;
 
-import io.github.shirohoo.datastructure.Queue;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @DisplayName("큐")
 class QueueTest {
-
-    private Queue<Integer> queue;
+    Queue<Integer> queue;
 
     @BeforeEach
     void setUp() {
@@ -19,13 +18,13 @@ class QueueTest {
     @Test
     void enqueue() throws Exception {
         queue.enqueue(1);
-        Assertions.assertThat(queue.size()).isEqualTo(1);
+        assertThat(queue.size()).isEqualTo(1);
 
         queue.enqueue(2);
-        Assertions.assertThat(queue.size()).isEqualTo(2);
+        assertThat(queue.size()).isEqualTo(2);
 
         queue.enqueue(3);
-        Assertions.assertThat(queue.size()).isEqualTo(3);
+        assertThat(queue.size()).isEqualTo(3);
     }
 
     @Test
@@ -33,16 +32,15 @@ class QueueTest {
         queue.enqueue(10);
         queue.enqueue(2);
         queue.enqueue(3);
-        Assertions.assertThat(queue.dequeue()).isEqualTo(10);
-        Assertions.assertThat(queue.dequeue()).isEqualTo(2);
-        Assertions.assertThat(queue.size()).isEqualTo(1);
+        assertThat(queue.dequeue()).isEqualTo(10);
+        assertThat(queue.dequeue()).isEqualTo(2);
+        assertThat(queue.size()).isEqualTo(1);
     }
 
     @Test
     void isEmpty() throws Exception {
-        Assertions.assertThat(queue.isEmpty()).isTrue();
-
+        assertThat(queue.isEmpty()).isTrue();
         queue.enqueue(1);
-        Assertions.assertThat(queue.isEmpty()).isFalse();
+        assertThat(queue.isEmpty()).isFalse();
     }
 }

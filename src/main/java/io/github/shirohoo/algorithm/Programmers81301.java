@@ -1,7 +1,6 @@
 package io.github.shirohoo.algorithm;
 
 class Programmers81301 {
-
     int solution(String question) {
         if (isDigitAll(question)) {
             return Integer.parseInt(question);
@@ -18,7 +17,7 @@ class Programmers81301 {
 
     private boolean isDigitAll(String question) {
         return question.chars()
-            .allMatch(Character::isDigit);
+                .allMatch(Character::isDigit);
     }
 
     private enum Numbers {
@@ -41,12 +40,11 @@ class Programmers81301 {
 
         private String getRegex() {
             return this.name()
-                .toLowerCase();
+                    .toLowerCase();
         }
 
         private String getReplacement() {
             return replacement;
         }
     }
-
 }

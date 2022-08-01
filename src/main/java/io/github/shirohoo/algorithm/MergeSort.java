@@ -47,16 +47,13 @@ public class MergeSort {
             if (desc) {
                 if (left[li] >= right[ri]) {
                     array[ai++] = left[li++];
-                }
-                else {
+                } else {
                     array[ai++] = right[ri++];
                 }
-            }
-            else {
+            } else {
                 if (left[li] <= right[ri]) {
                     array[ai++] = left[li++];
-                }
-                else {
+                } else {
                     array[ai++] = right[ri++];
                 }
             }

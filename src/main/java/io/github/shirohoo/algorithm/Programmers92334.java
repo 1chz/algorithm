@@ -17,8 +17,7 @@ public class Programmers92334 {
 
             if (map.containsKey(reported)) {
                 map.get(reported).add(reporter);
-            }
-            else {
+            } else {
                 HashSet<String> set = new HashSet<>();
                 set.add(reporter);
                 map.put(reported, set);

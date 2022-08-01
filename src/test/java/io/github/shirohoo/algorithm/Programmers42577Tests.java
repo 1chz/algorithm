@@ -1,12 +1,13 @@
 package io.github.shirohoo.algorithm;
 
-import io.github.shirohoo.algorithm.Programmers42577;
-import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * <pre>
@@ -25,23 +26,25 @@ import org.junit.jupiter.params.provider.MethodSource;
  * </pre>
  */
 @DisplayName("프로그래머스 42577 - 전화번호 목록")
-class Programmers42577Test {
-
-    private Programmers42577 solve = new Programmers42577();
-
+class Programmers42577Tests {
     @MethodSource
     @ParameterizedTest
-    void solution(final String[] phoneBook, final boolean expected) throws Exception {
-        final boolean actual = solve.solution(phoneBook);
-        Assertions.assertThat(actual).isEqualTo(expected);
+    void solution(String[] phoneBook, boolean expected) throws Exception {
+        // given
+        Programmers42577 sut = new Programmers42577();
+
+        // when
+        boolean actual = sut.solution(phoneBook);
+
+        // then
+        assertThat(actual).isEqualTo(expected);
     }
 
-    private static Stream<Arguments> solution() {
+    static Stream<Arguments> solution() {
         return Stream.of(
-            Arguments.of(new String[]{"119", "97674223", "1195524421"}, false),
-            Arguments.of(new String[]{"123", "456", "789"}, true),
-            Arguments.of(new String[]{"12", "123", "1235", "567", "88"}, false)
+                Arguments.of(new String[]{"119", "97674223", "1195524421"}, false),
+                Arguments.of(new String[]{"123", "456", "789"}, true),
+                Arguments.of(new String[]{"12", "123", "1235", "567", "88"}, false)
         );
     }
-
 }

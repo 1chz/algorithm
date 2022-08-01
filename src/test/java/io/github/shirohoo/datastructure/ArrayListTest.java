@@ -1,17 +1,15 @@
 package io.github.shirohoo.datastructure;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-
-import io.github.shirohoo.datastructure.ArrayList;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 @DisplayName("동적 할당 배열")
 class ArrayListTest {
-
-    private ArrayList<String> arrayList;
+    ArrayList<String> arrayList;
 
     @BeforeEach
     void setUp() {
@@ -21,18 +19,18 @@ class ArrayListTest {
 
     @Test
     void get() {
-        Assertions.assertThat(arrayList.get(0)).isEqualTo("shirohoo");
+        assertThat(arrayList.get(0)).isEqualTo("shirohoo");
     }
 
     @Test
     void size() {
-        Assertions.assertThat(arrayList.size()).isEqualTo(1);
+        assertThat(arrayList.size()).isEqualTo(1);
     }
 
     @Test
     void add_1() {
         arrayList.add("shirohoo2");
-        Assertions.assertThat(arrayList.size()).isEqualTo(2);
+        assertThat(arrayList.size()).isEqualTo(2);
     }
 
     @Test
@@ -40,10 +38,10 @@ class ArrayListTest {
         arrayList.add(0, "shirohoo2");
         arrayList.add(0, "shirohoo3");
         assertAll(
-                () -> Assertions.assertThat(arrayList.size()).isEqualTo(3),
-                () -> Assertions.assertThat(arrayList.get(0)).isEqualTo("shirohoo3"),
-                () -> Assertions.assertThat(arrayList.get(1)).isEqualTo("shirohoo2"),
-                () -> Assertions.assertThat(arrayList.get(2)).isEqualTo("shirohoo")
+                () -> assertThat(arrayList.size()).isEqualTo(3),
+                () -> assertThat(arrayList.get(0)).isEqualTo("shirohoo3"),
+                () -> assertThat(arrayList.get(1)).isEqualTo("shirohoo2"),
+                () -> assertThat(arrayList.get(2)).isEqualTo("shirohoo")
         );
 
     }
@@ -51,12 +49,12 @@ class ArrayListTest {
     @Test
     void remove() {
         arrayList.remove(0);
-        Assertions.assertThat(arrayList.size()).isEqualTo(0);
+        assertThat(arrayList.size()).isEqualTo(0);
     }
 
     @Test
     void testToString() {
         arrayList.add("shirohoo2");
-        Assertions.assertThat(arrayList.toString()).isEqualTo("[ shirohoo, shirohoo2 ]");
+        assertThat(arrayList.toString()).isEqualTo("[ shirohoo, shirohoo2 ]");
     }
 }

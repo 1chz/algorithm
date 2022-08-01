@@ -5,14 +5,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Queue<E> {
-
-    private List<E> queue;
+    private final List<E> queue;
 
     public Queue() {
         this.queue = new ArrayList<>();
     }
 
-    public void enqueue(final E ele) {
+    public void enqueue(E ele) {
         queue.add(ele);
     }
 

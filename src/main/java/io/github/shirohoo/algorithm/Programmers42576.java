@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 // 테스트 코드 참고
 public class Programmers42576 {
-
     public String solution(String[] participant, String[] completion) {
         Arrays.sort(participant);
         Arrays.sort(completion);
@@ -16,5 +15,4 @@ public class Programmers42576 {
         }
         return participant[participant.length - 1];
     }
-
 }

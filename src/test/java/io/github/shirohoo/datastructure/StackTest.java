@@ -1,14 +1,14 @@
 package io.github.shirohoo.datastructure;
 
-import io.github.shirohoo.datastructure.Stack;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @DisplayName("스택")
 class StackTest {
-    private Stack<Integer> stack;
+    Stack<Integer> stack;
 
     @BeforeEach
     void setUp() {
@@ -16,23 +16,23 @@ class StackTest {
     }
 
     @Test
-    void push() throws Exception{
-        Assertions.assertThat(stack.isEmpty()).isTrue();
+    void push() throws Exception {
+        assertThat(stack.isEmpty()).isTrue();
         stack.push(1);
-        Assertions.assertThat(stack.isEmpty()).isFalse();
+        assertThat(stack.isEmpty()).isFalse();
     }
 
     @Test
-    void pop() throws Exception{
+    void pop() throws Exception {
         stack.push(1);
-        Assertions.assertThat(stack.pop()).isEqualTo(1);
-        Assertions.assertThat(stack.isEmpty()).isTrue();
+        assertThat(stack.pop()).isEqualTo(1);
+        assertThat(stack.isEmpty()).isTrue();
     }
 
     @Test
-    void top() throws Exception{
+    void top() throws Exception {
         stack.push(1);
-        Assertions.assertThat(stack.top()).isEqualTo(1);
-        Assertions.assertThat(stack.isEmpty()).isFalse();
+        assertThat(stack.top()).isEqualTo(1);
+        assertThat(stack.isEmpty()).isFalse();
     }
 }

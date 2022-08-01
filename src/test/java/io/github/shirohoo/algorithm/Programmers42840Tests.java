@@ -1,12 +1,13 @@
 package io.github.shirohoo.algorithm;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import io.github.shirohoo.algorithm.Programmers42840;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * <pre>
@@ -24,23 +25,25 @@ import org.junit.jupiter.params.provider.MethodSource;
  * </pre>
  */
 @DisplayName("프로그래머스 42576 - 완주하지 못한 선수")
-class Programmers42840Test {
-
-    private Programmers42840 solve = new Programmers42840();
-
+class Programmers42840Tests {
     @MethodSource
     @ParameterizedTest
-    void solution(final int[] answers, final int[] expected) {
-        final int[] actual = solve.solution(answers);
+    void solution(int[] answers, int[] expected) {
+        // given
+        Programmers42840 sut = new Programmers42840();
+
+        // when
+        int[] actual = sut.solution(answers);
+
+        // then
         assertThat(actual).isEqualTo(expected);
     }
 
-    private static Stream<Arguments> solution() {
+    static Stream<Arguments> solution() {
         return Stream.of(
-            Arguments.of(new int[]{1, 2, 3, 4, 5}, new int[]{1}),
-            Arguments.of(new int[]{1, 3, 2, 4, 2}, new int[]{1, 2, 3}),
-            Arguments.of(new int[]{1, 3, 2, 4, 2, 1}, new int[]{1})
+                Arguments.of(new int[]{1, 2, 3, 4, 5}, new int[]{1}),
+                Arguments.of(new int[]{1, 3, 2, 4, 2}, new int[]{1, 2, 3}),
+                Arguments.of(new int[]{1, 3, 2, 4, 2, 1}, new int[]{1})
         );
     }
-
 }

@@ -1,6 +1,5 @@
 package io.github.shirohoo.algorithm;
 
-import io.github.shirohoo.algorithm.Programmers92334;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,8 +13,19 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 문제 링크: https://programmers.co.kr/learn/courses/30/lessons/92334
  */
 @DisplayName("프로그래머스 92334 - 신고 결과 받기")
-class Programmers92334Test {
-    Programmers92334 solve = new Programmers92334();
+class Programmers92334Tests {
+    @MethodSource
+    @ParameterizedTest
+    void solution(String[] idList, String[] reports, int k, int[] expected) throws Exception {
+        // given
+        Programmers92334 sut = new Programmers92334();
+
+        // when
+        int[] actual = sut.solution(idList, reports, k);
+
+        // then
+        assertThat(actual).isEqualTo(expected);
+    }
 
     static Stream<Arguments> solution() {
         return Stream.of(
@@ -32,12 +42,5 @@ class Programmers92334Test {
                         new int[]{0, 0}
                 )
         );
-    }
-
-    @MethodSource
-    @ParameterizedTest
-    void solution(String[] idList, String[] reports, int k, int[] expected) throws Exception {
-        int[] actual = solve.solution(idList, reports, k);
-        assertThat(actual).isEqualTo(expected);
     }
 }

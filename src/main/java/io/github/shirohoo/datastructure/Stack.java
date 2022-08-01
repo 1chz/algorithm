@@ -15,25 +15,25 @@ public class Stack<E> {
         return new Stack<>();
     }
 
-    public void push(final E ele){
+    public void push(E ele) {
         list.add(ele);
     }
 
-    public E pop(){
-        if(isEmpty()){
+    public E pop() {
+        if (isEmpty()) {
             throw new EmptyStackException();
         }
         return list.remove(lastIndex());
     }
 
-    public E top(){
-        if(isEmpty()){
+    public E top() {
+        if (isEmpty()) {
             throw new EmptyStackException();
         }
         return list.get(lastIndex());
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return list.isEmpty();
     }
 

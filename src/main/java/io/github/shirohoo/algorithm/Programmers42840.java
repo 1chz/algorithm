@@ -1,18 +1,13 @@
 package io.github.shirohoo.algorithm;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
 class Programmers42840 {
     public static final int[][] PATTERN = new int[][]{
-        {1, 2, 3, 4, 5},
-        {2, 1, 2, 3, 2, 4, 2, 5},
-        {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}
+            {1, 2, 3, 4, 5},
+            {2, 1, 2, 3, 2, 4, 2, 5},
+            {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}
     };
 
     public int[] solution(int[] answers) {
@@ -35,7 +30,7 @@ class Programmers42840 {
 
     private int score(int[] people, int[] answers) {
         return IntStream.range(0, answers.length)
-            .map(i -> people[i % people.length] == answers[i] ? 1 : 0)
-            .sum();
+                .map(i -> people[i % people.length] == answers[i] ? 1 : 0)
+                .sum();
     }
 }

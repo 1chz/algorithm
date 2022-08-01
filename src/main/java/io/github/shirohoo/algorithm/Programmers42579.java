@@ -1,5 +1,7 @@
 package io.github.shirohoo.algorithm;
 
+import static java.util.stream.Collectors.groupingBy;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -7,8 +9,6 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.groupingBy;
 
 public class Programmers42579 {
     public int[] solution(String[] genres, int[] plays) {
@@ -42,6 +42,7 @@ public class Programmers42579 {
                 .mapToInt(Music::getPlayed)
                 .sum();
     }
+
     private static class Music implements Comparable<Music> {
         private final int id;
         private final String genre;
